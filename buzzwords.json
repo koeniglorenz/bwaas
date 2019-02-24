@@ -1,5 +1,17 @@
-[
-	"IoT",
-	"Big Data",
-	"Industry 4.0"
-]
+{
+	"adj": [
+		"Hosted",
+		"Smart",
+		"Automated",
+		"Fully Integrated"
+	],
+	"sub": [
+		"Deployment",
+		"IoT",
+		"Big Data"
+	],
+	"app": [
+		"as a Service",
+		"in the Cloud"
+	]
+}
