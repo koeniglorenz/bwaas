@@ -60,7 +60,7 @@ func getRandomWords() string {
 
 func FormatHTML() string {
   w := getRandomWords()
-  html := fmt.Sprintf("<html><head><title>Buzzwords As a Service</title></head><body><center style=\"font-family: monospace\"><h1>%s</h1></center></body></html>", w)
+  html := fmt.Sprintf("<html><head><title>Buzzwords As a Service</title></head><body><center style=\"font-family: monospace\"><h3>%s</h3></center></body></html>", w)
   return html
 }
 
