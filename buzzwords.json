@@ -3,15 +3,42 @@
 		"Hosted",
 		"Smart",
 		"Automated",
-		"Fully Integrated"
+		"Fully Integrated",
+		"Virtual",
+		"Core",
+		"Intelligent",
+		"Personalized",
+		"Scalable",
+		"Next-Gen",
+		"Mobile-first",
+		"Immersive",
+		"Progressive"
 	],
 	"sub": [
 		"Deployment",
 		"IoT",
-		"Big Data"
+		"Big Data",
+		"VR",
+		"AR",
+		"AI",
+		"Machine learning",
+		"Business",
+		"Blockchain",
+		"Edge Computing",
+		"Analytics",
+		"Data Mining",
+		"Quantum Computing",
+		"Datafication",
+		"Deep learning",
+		"Microservices",
+		"Automation",
+		"Architecture"
 	],
 	"app": [
 		"as a Service",
-		"in the Cloud"
+		"in the Cloud",
+		"on premise",
+		"in the Zettabyte era",
+		"on demand"
 	]
 }
