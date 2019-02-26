@@ -4,7 +4,7 @@ import (
   "testing"
 )
 
-func TestBuzzwords(t *testing.T) {
+func TestReadFile(t *testing.T) {
   tt := []struct {
     name string
     path string

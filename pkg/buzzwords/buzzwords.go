@@ -46,7 +46,6 @@ func readFile(p string) error {
   adjCount = len(b.Adj)
   subCount = len(b.Sub)
   appCount = len(b.App)
-
   return nil
 }
 
