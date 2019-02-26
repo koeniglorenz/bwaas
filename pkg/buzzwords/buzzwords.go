@@ -46,11 +46,10 @@ func readFile(p string) error {
   adjCount = len(b.Adj)
   subCount = len(b.Sub)
   appCount = len(b.App)
-
   return nil
 }
 
-func getRandomWords() string {
+func GetRandomWords() string {
   adj := b.Adj[rand.Intn(adjCount)]
   sub := b.Sub[rand.Intn(subCount)]
   app := b.App[rand.Intn(appCount)]
@@ -58,14 +57,12 @@ func getRandomWords() string {
   return fmt.Sprintf("%s %s %s", adj, sub, app)
 }
 
-func FormatHTML() string {
-  w := getRandomWords()
+func FormatHTML(w string) string {
   html := fmt.Sprintf("<html><head><title>Buzzwords As a Service</title></head><body><center style=\"font-family: monospace\"><h3>%s</h3></center></body></html>", w)
   return html
 }
 
-func FormatJSON() ([]byte, error) {
-  w := getRandomWords()
+func FormatJSON(w string) ([]byte, error) {
   o := Buzzword{w}
   j, err := json.Marshal(o)
   if err != nil {
