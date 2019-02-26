@@ -1,5 +1,7 @@
 # Buzzwords as a Service (BwaaS)
 
+[![pipeline status](https://gitlab.com/koeniglorenz/bwaas/badges/master/pipeline.svg)](https://gitlab.com/koeniglorenz/bwaas/commits/master)
+
 A simple HTTP server that responds to requests with a randomly generated concatenation of buzzwords that (probably) doesn't make any sense.
 
 The server either responds with HTML or with JSON, when setting the `Accept`-Header of the request to `application/json`
