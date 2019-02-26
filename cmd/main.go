@@ -30,7 +30,7 @@ func main() {
   log.Println("Starting HTTP-Server at :8080...")
   err = http.ListenAndServe("127.0.0.1:8080", nil)
   if err != nil {
-    log.Fatal("Error starting up HTTP-Server: %v", err)
+    log.Fatalf("Error starting up HTTP-Server: %v", err)
   }
 }
 
