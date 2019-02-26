@@ -39,8 +39,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
   t := r.Header.Get("accept")
 
+  bs := buzzwords.GetRandomWords()
+
   if t == "application/json" {
-    b, err := buzzwords.FormatJSON()
+    b, err := buzzwords.FormatJSON(bs)
     if err != nil {
       w.WriteHeader(http.StatusInternalServerError)
       log.Printf("Error formatting JSON: %v\n", err.Error())
@@ -49,7 +51,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "%s", b)
     return
   } else {
-    b := buzzwords.FormatHTML()
+    b := buzzwords.FormatHTML(bs)
     fmt.Fprintf(w, "%s", b)
     return
   }
