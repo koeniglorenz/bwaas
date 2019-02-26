@@ -12,7 +12,7 @@ func TestReadFile(t *testing.T) {
   } {
     {"open existing json-file", "./testdata/good.json", false},
     {"open non-existent file", "./testdata/nonexistentfile", true},
-    {"open bad-json-file", "./testdata/bad.go", true},
+    {"open bad-json-file", "./testdata/bad.json", true},
   }
 
   for _, tc := range tt {
