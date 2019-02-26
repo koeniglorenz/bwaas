@@ -12,7 +12,27 @@
 		"Next-Gen",
 		"Mobile-first",
 		"Immersive",
-		"Progressive"
+		"Progressive",
+		"Multi-Platform",
+		"Modern-Web-Based",
+		"Predictive",
+		"Proactive",
+		"Disruptive",
+		"Revolutionary",
+		"Data driven",
+		"Game changing",
+		"Turing tested",
+		"Service oriented",
+		"Agile",
+		"Dynamic",
+		"Real-time",
+		"Serverless",
+		"Elastic",
+		"Robotic",
+		"Digital",
+		"Natural language",
+		"Autonomous",
+		"Operative"
 	],
 	"sub": [
 		"Deployment",
@@ -32,13 +52,27 @@
 		"Deep learning",
 		"Microservices",
 		"Automation",
-		"Architecture"
+		"Architecture",
+		"Hybrid Cloud",
+		"Services",
+		"Artificial Consciousness",
+		"Supply Chains",
+		"Grid Computing",
+		"Distributed Ledger",
+		"Recognition",
+		"Intelligence",
+		"Cognitive Computing",
+		"Process Mining",
+		"Bots",
+		"Web-App"
 	],
 	"app": [
 		"as a Service",
 		"in the Cloud",
 		"on premise",
 		"in the Zettabyte era",
-		"on demand"
+		"on demand",
+		"4.0",
+		"by Design"
 	]
 }
