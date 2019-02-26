@@ -3,6 +3,8 @@ package buzzwords
 import (
   "testing"
   "fmt"
+  "encoding/json"
+  "bytes"
 )
 
 func TestReadFile(t *testing.T) {
@@ -69,4 +71,25 @@ func TestFormatHTML(t *testing.T) {
   if bs != e {
     t.Errorf("\nExpected:   %s\nBut got:    %s", e, bs)
   }
+}
+
+func TestFormatJSON(t *testing.T) {
+  b := "IoT"
+  o := Buzzword{b}
+
+  om, err := json.Marshal(o)
+  if err != nil {
+    t.Errorf("Error marshalling reference json: %v", err)
+  }
+
+  bs, err := FormatJSON(b)
+  if err != nil {
+    t.Errorf("Error formatting JSON: %v", err)
+  }
+
+  if !bytes.Equal(om, bs){
+    t.Errorf("Mashalled JSON objects are not the same:\nGot:   %s\nExpected: %s", bs, om)
+  }
+
+
 }
