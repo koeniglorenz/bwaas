@@ -27,5 +27,28 @@ func TestReadFile(t *testing.T) {
       }
     })
   }
+}
 
+func TestInit(t *testing.T) {
+  tt := []struct {
+    name string
+    path string
+    expectError bool
+  } {
+    {"initialize with existing file", "./testdata/good.json", false},
+    {"initialize with non-existent file", "./testdata/nonexistentfile", true},
+  }
+
+  for _, tc := range tt {
+    t.Run(tc.name, func(t *testing.T) {
+      err := Init(tc.path)
+      if err != nil {
+        if tc.expectError == false {
+          t.Errorf("Did not expect error: %v\n", err.Error())
+        }
+      } else if tc.expectError == true {
+        t.Error("Expected error but didn't get one")
+      }
+    })
+  }
 }
