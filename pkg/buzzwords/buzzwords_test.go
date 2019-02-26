@@ -2,6 +2,7 @@ package buzzwords
 
 import (
   "testing"
+  "fmt"
 )
 
 func TestReadFile(t *testing.T) {
@@ -57,5 +58,15 @@ func TestGetRandomWords(t *testing.T) {
   s := GetRandomWords()
   if s == "" {
     t.Errorf("Expected output but got empty string")
+  }
+}
+
+func TestFormatHTML(t *testing.T) {
+  b := "IoT"
+  e := fmt.Sprintf("<html><head><title>Buzzwords As a Service</title></head><body><center style=\"font-family: monospace\"><h3>%s</h3></center></body></html>", b)
+
+  bs := FormatHTML(b)
+  if bs != e {
+    t.Errorf("\nExpected:   %s\nBut got:    %s", e, bs)
   }
 }
