@@ -52,3 +52,10 @@ func TestInit(t *testing.T) {
     })
   }
 }
+
+func TestGetRandomWords(t *testing.T) {
+  s := GetRandomWords()
+  if s == "" {
+    t.Errorf("Expected output but got empty string")
+  }
+}
