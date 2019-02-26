@@ -1,7 +1,7 @@
 image: golang:1.11
 
 variables:
-  REPO_NAME: gitlab.com/koeniglorenz/bwaas
+  REPO_NAME: github.com/koeniglorenz/bwaas
 
 before_script:
   - mkdir -p $GOPATH/src/$(dirname $REPO_NAME)
