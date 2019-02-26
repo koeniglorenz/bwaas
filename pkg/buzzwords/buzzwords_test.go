@@ -10,9 +10,9 @@ func TestBuzzwords(t *testing.T) {
     path string
     expectError bool
   } {
-    {"open existing json-file", "../../buzzwords.json", false},
-    {"open non-existent file", "./nonexistentfile", true},
-    {"open non-json-file", "./buzzwords.go", true},
+    {"open existing json-file", "./testdata/good.json", false},
+    {"open non-existent file", "./testdata/nonexistentfile", true},
+    {"open bad-json-file", "./testdata/bad.go", true},
   }
 
   for _, tc := range tt {
