@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/koeniglorenz/bwaas/pkg/store"
 	"github.com/koeniglorenz/bwaas/pkg/serve"
+	"github.com/koeniglorenz/bwaas/pkg/store"
 )
 
 func main() {

@@ -1,25 +1,24 @@
 package serve
 
 import (
-  "net/http"
-  "fmt"
-  "log"
-  "os"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
 
-  "github.com/koeniglorenz/bwaas/pkg/store"
+	"github.com/koeniglorenz/bwaas/pkg/store"
 )
 
 var bw store.Store
 var logger *log.Logger
 
-func New(s store.Store) http.Handler{
-  logger = log.New(os.Stdout, "http: ", log.LstdFlags)
-  bw = s
-  r := http.NewServeMux()
-  r.HandleFunc("/", handler)
-  return r
+func New(s store.Store) http.Handler {
+	logger = log.New(os.Stdout, "http: ", log.LstdFlags)
+	bw = s
+	r := http.NewServeMux()
+	r.HandleFunc("/", handler)
+	return r
 }
-
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	logger.Println(r.Method, r.RequestURI, r.UserAgent(), r.RemoteAddr)
