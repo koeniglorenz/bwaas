@@ -7,9 +7,14 @@ import (
 	"os"
 
 	"github.com/koeniglorenz/bwaas/pkg/buzzwords"
+	"github.com/koeniglorenz/bwaas/pkg/store"
 )
 
 var logger *log.Logger
+
+var s store.Store
+
+var err error
 
 func main() {
 	logger = log.New(os.Stdout, "http: ", log.LstdFlags)
@@ -20,7 +25,12 @@ func main() {
 
 	p := os.Args[1]
 
-	err := buzzwords.Init(p)
+	s, err = store.New(p)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	err = buzzwords.Init(p)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -39,10 +49,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	t := r.Header.Get("accept")
 
-	bs := buzzwords.GetRandomWords()
+//	bs := buzzwords.GetRandomWords()
 
 	if t == "application/json" {
-		b, err := buzzwords.FormatJSON(bs)
+		b, err := s.GetJSON()
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			log.Printf("Error formatting JSON: %v\n", err.Error())
@@ -51,7 +61,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "%s", b)
 		return
 	} else {
-		b := buzzwords.FormatHTML(bs)
+		b := s.GetHTML()
 		fmt.Fprintf(w, "%s", b)
 		return
 	}
