@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math/rand"
-	"time")
+	"time"
+)
 
 type Store interface {
 	GetHTML() string
