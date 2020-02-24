@@ -5,8 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math/rand"
-	"time"
-)
+	"time")
 
 type Store interface {
 	GetHTML() string
@@ -62,7 +61,15 @@ func getRandomWords() string {
 
 func (store *jsonstore) GetHTML() string {
 	w := getRandomWords()
-	html := fmt.Sprintf("<html><head><title>Buzzwords As a Service</title></head><body><center style=\"font-family: monospace\"><h3>%s</h3></center></body></html>", w)
+	html := fmt.Sprintf(`
+		<html>
+			<head>
+				<title>Buzzwords As a Service</title>
+			</head>
+			<body style="height: 100%%; display: grid">
+				<h1 style="font-size:4vw; font-style=Sans-Serif; margin: auto;">%s</h1>
+			</body>
+		</html>`, w)
 	return html
 }
 
