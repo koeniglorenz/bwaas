@@ -67,8 +67,8 @@ func (store *jsonstore) GetHTML() string {
 			<head>
 				<title>Buzzwords As a Service</title>
 			</head>
-			<body style="height: 100%%; display: grid">
-				<h1 style="font-size:4vw; font-style=Sans-Serif; margin: auto;">%s</h1>
+			<body style="height: 100%%; display: grid; font-family: Sans-Serif">
+				<h1 style="font-size:4vw; margin: auto;">%s</h1>
 			</body>
 		</html>`, w)
 	return html
