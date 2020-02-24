@@ -1,9 +1,9 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
-	"flag"
 
 	"github.com/koeniglorenz/bwaas/pkg/serve"
 	"github.com/koeniglorenz/bwaas/pkg/store"
