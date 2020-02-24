@@ -9,4 +9,4 @@ COPY . .
 
 RUN go build -o bwaas ./cmd/main.go
 
-CMD ["./bwaas", "./buzzwords.json"]
+CMD ["./bwaas", "--buzzwords", "./buzzwords.json"]
