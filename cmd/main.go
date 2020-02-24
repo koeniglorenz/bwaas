@@ -3,21 +3,18 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
+	"flag"
 
 	"github.com/koeniglorenz/bwaas/pkg/serve"
 	"github.com/koeniglorenz/bwaas/pkg/store"
 )
 
 func main() {
+	buzzwords := flag.String("buzzwords", "buzzwords.json", "path to JSON-file with buzzwords")
 
-	if len(os.Args) < 2 {
-		log.Fatal("Please provide the path to buzzwords.json as a argument to the programm call.")
-	}
+	flag.Parse()
 
-	p := os.Args[1]
-
-	s, err := store.New(p)
+	s, err := store.New(*buzzwords)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
