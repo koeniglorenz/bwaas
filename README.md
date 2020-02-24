@@ -32,10 +32,11 @@ For running locally either golang (1.11) is required or the docker runtime.
 _golang_
 ```sh
 go build -o bwaas ./cmd/main.go
-./bwaas ./buzzwords.json
+./bwaas --buzzwords ./buzzwords.json
 ```
 After starting the webserver is listening on port `8080` for requests.  
-The path to the `buzzwords.json` file needs to be specified with the program call.
+The command-line-flag `buzzwords` is for passing the path to the buzzwords-JSON-file.  
+The flag is optional and defaults to `buzzwords.json`.  
 
 _docker_
 ```sh
