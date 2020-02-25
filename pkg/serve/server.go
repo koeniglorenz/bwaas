@@ -13,7 +13,7 @@ type server struct {
 	logger *log.Logger
 	store  store.Store
 	mux    *http.ServeMux
-	port int
+	port   int
 }
 
 func New(store store.Store, port int) *server {
