@@ -13,18 +13,20 @@ type server struct {
 	logger *log.Logger
 	store  store.Store
 	mux    *http.ServeMux
+	port int
 }
 
-func New(store store.Store) *server {
+func New(store store.Store, port int) *server {
 	s := &server{}
 	s.logger = log.New(os.Stdout, "http: ", log.LstdFlags)
 	s.store = store
+	s.port = port
 	s.mux = http.NewServeMux()
 	s.mux.HandleFunc("/", s.handler)
 	return s
 }
 
-func (s server) handler(w http.ResponseWriter, r *http.Request) {
+func (s *server) handler(w http.ResponseWriter, r *http.Request) {
 	s.logger.Println(r.Method, r.RequestURI, r.UserAgent(), r.RemoteAddr)
 
 	t := r.Header.Get("accept")
@@ -45,8 +47,9 @@ func (s server) handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (s server) Start() error {
-	log.Println("Starting HTTP-Server at :8080...")
-	err := http.ListenAndServe("0.0.0.0:8080", s.mux)
+func (s *server) Start() error {
+	lst := fmt.Sprintf("0.0.0.0:%d", s.port)
+	log.Printf("Starting HTTP-Server at 0.0.0.0:%d...", s.port)
+	err := http.ListenAndServe(lst, s.mux)
 	return err
 }
