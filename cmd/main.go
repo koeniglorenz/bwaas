@@ -20,7 +20,7 @@ func main() {
 	}
 
 	server := serve.New(wordstore, *port)
-	err := server.Start()
+	err = server.Start()
 	if err != nil {
 		log.Fatal(err.Error())
 	}
