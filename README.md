@@ -35,7 +35,7 @@ go build -o bwaas ./cmd/main.go
 ./bwaas --port 8080 --buzzwords ./buzzwords.json
 ```
 With the flag `port` the port for the server to listen on can be specified.  
-This is optional and defaults to `8080`.
+This is optional and defaults to `8080`.  
 The flag `buzzwords` is for passing the path to the buzzwords-JSON-file.  
 The flag is also optional and defaults to `buzzwords.json`.  
 
