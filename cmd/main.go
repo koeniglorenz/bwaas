@@ -20,5 +20,8 @@ func main() {
 	}
 
 	server := serve.New(wordstore, *port)
-	server.Start()
+	err := server.Start()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 }
