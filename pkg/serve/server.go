@@ -11,8 +11,8 @@ import (
 
 type server struct {
 	logger *log.Logger
-	store store.Store
-	mux *http.ServeMux
+	store  store.Store
+	mux    *http.ServeMux
 }
 
 func New(store store.Store) *server {
