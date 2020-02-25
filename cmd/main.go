@@ -14,11 +14,11 @@ func main() {
 
 	flag.Parse()
 
-	store, err := store.New(*buzzwords)
+	wordstore, err := store.New(*buzzwords)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	server := serve.New(store, *port)
+	server := serve.New(wordstore, *port)
 	server.Start()
 }
