@@ -9,24 +9,28 @@ import (
 	"github.com/koeniglorenz/bwaas/pkg/store"
 )
 
-var bw store.Store
-var logger *log.Logger
-
-func New(s store.Store) http.Handler {
-	logger = log.New(os.Stdout, "http: ", log.LstdFlags)
-	bw = s
-	r := http.NewServeMux()
-	r.HandleFunc("/", handler)
-	return r
+type server struct {
+	logger *log.Logger
+	store store.Store
+	mux *http.ServeMux
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	logger.Println(r.Method, r.RequestURI, r.UserAgent(), r.RemoteAddr)
+func New(store store.Store) *server {
+	s := &server{}
+	s.logger = log.New(os.Stdout, "http: ", log.LstdFlags)
+	s.store = store
+	s.mux = http.NewServeMux()
+	s.mux.HandleFunc("/", s.handler)
+	return s
+}
+
+func (s server) handler(w http.ResponseWriter, r *http.Request) {
+	s.logger.Println(r.Method, r.RequestURI, r.UserAgent(), r.RemoteAddr)
 
 	t := r.Header.Get("accept")
 
 	if t == "application/json" {
-		b, err := bw.GetJSON()
+		b, err := s.store.GetJSON()
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			log.Printf("Error formatting JSON: %v\n", err.Error())
@@ -35,8 +39,14 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "%s", b)
 		return
 	} else {
-		b := bw.GetHTML()
+		b := s.store.GetHTML()
 		fmt.Fprintf(w, "%s", b)
 		return
 	}
+}
+
+func (s server) Start() error {
+	log.Println("Starting HTTP-Server at :8080...")
+	err := http.ListenAndServe("0.0.0.0:8080", s.mux)
+	return err
 }
