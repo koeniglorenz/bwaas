@@ -25,7 +25,7 @@ The buzzwords are stored in a simple json file with the following structure:
 Every time a request is processed, a random combination of one of these three categories is generated.  
 Feel free to add  buzzwords and open a pull request!
 
-### Running locally
+### Running ~~locally~~ on premise
 
 For running locally either golang (1.11) is required or the docker runtime.
 
