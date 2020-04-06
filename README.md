@@ -25,9 +25,9 @@ The buzzwords are stored in a simple json file with the following structure:
 Every time a request is processed, a random combination of one of these three categories is generated.  
 Feel free to add  buzzwords and open a pull request!
 
-### Running locally
+### Running ~~locally~~ on premise
 
-For running locally either golang (1.11) is required or the docker runtime.
+For running ~~locally~~ on premise either golang (1.11) is required or the docker runtime.
 
 _golang_
 ```sh
@@ -44,3 +44,8 @@ docker build -t koeniglorenz/bwaas .
 docker run -d -p 8080:8080 koeniglorenz/bwaas
 ```
 By default the container exposes port `8080`, so this port can be mapped to any port on your local machine.
+
+
+### Running in the cloud (as a service)
+
+BwaaS is (as the name suggests) also available as a service in the cloud: https://bwaas.koenigreich.me
