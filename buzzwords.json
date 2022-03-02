@@ -32,7 +32,9 @@
 		"Digital",
 		"Natural language",
 		"Autonomous",
-		"Operative"
+		"Operative",
+		"Tokenized",
+		"Decentral"
 	],
 	"sub": [
 		"Deployment",
@@ -64,7 +66,11 @@
 		"Cognitive Computing",
 		"Process Mining",
 		"Bots",
-		"Web-App"
+		"Web-App",
+		"Web3",
+		"NFT",
+		"Contract",
+		"Metaverse"
 	],
 	"app": [
 		"as a Service",
@@ -73,6 +79,7 @@
 		"in the Zettabyte era",
 		"on demand",
 		"4.0",
-		"by Design"
+		"by Design",
+		"as a token"
 	]
 }
